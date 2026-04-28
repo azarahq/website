@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  ============================================================
+  Azara — landing page v5
+
+  Changes from v4:
+    1.  Copy is general again, not renewables-specific.
+        Solar appears as one example among several (matching
+        actual pilot verticals: automotive, hydrogen, AI data
+        centers).
+    2.  H1 changed to "For skilled technicians and field
+        workers." Subhead now carries the "AI" framing.
+    3.  Subhead generalised — solar is one example, not the
+        anchor.
+    4.  Step 1 reworked: "Set up your device." Adds a note on
+        configuring mode, sources, and integrations per role.
+    5.  Standalone "What's actually broken in the field" section
+        removed. The strongest diagnostic is folded into the
+        section subhead under "How Azara works."
+    6.  "It" replaced with "Azara" wherever it strengthens the
+        brand. Section heading is now "How Azara works." The
+        modes section heading reads "Azara is built around your
+        technicians." FAQ questions name Azara directly.
+
+  ============================================================
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Azara — AI guidance for skilled technicians and field workers</title>
+<meta name="description" content="Real-time, hands-free AI assistance for the people who do skilled physical work — across solar, manufacturing, hydrogen, data centers, and the trades.">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:title" content="Azara — AI for skilled technicians and field workers">
+<meta property="og:description" content="Real-time, hands-free AI assistance for the people who do skilled physical work.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://azarahq.com">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Azara — AI for skilled technicians and field workers">
+<meta name="twitter:description" content="Real-time, hands-free AI assistance for the people who do skilled physical work.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F5F0E8;
+    --ink: #1A1814;
+    --ink-hover: #2C261F;
+    --muted: #7A7468;
+    --accent: #A0522D;
+    --rule: rgba(26, 24, 20, 0.10);
+    --rule-strong: rgba(26, 24, 20, 0.18);
+    --serif: 'Cormorant Garamond', 'EB Garamond', Garamond, Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: var(--accent); text-decoration: none; transition: color 0.15s ease; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 1px; }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- Header ---------- */
+  header { padding: 44px 0 0; }
+  .brand { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+  .brand__mark { display: block; line-height: 0; }
+  .wordmark {
+    font-family: var(--serif); font-size: 22px; font-weight: 500;
+    letter-spacing: 0.02em; color: var(--ink);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 96px 0 96px; }
+  .hero__inner { max-width: 720px; }
+  h1 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: 54px; line-height: 1.1; letter-spacing: -0.012em;
+    margin: 0 0 28px; color: var(--ink);
+  }
+  .subhead {
+    font-family: var(--serif); font-size: 23px; line-height: 1.5;
+    color: var(--muted); margin: 0 0 44px;
+    max-width: 640px; font-weight: 400;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta {
+    display: inline-block; background: var(--ink); color: var(--bg);
+    padding: 15px 30px; font-family: var(--serif);
+    font-size: 19px; font-weight: 500; letter-spacing: 0.005em;
+    border: none; cursor: pointer;
+    transition: background-color 0.18s ease; text-decoration: none;
+  }
+  .cta:hover { background: var(--ink-hover); text-decoration: none; }
+  .cta:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 88px 0; }
+
+  h2 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: 38px; line-height: 1.18; letter-spacing: -0.005em;
+    margin: 0 0 20px; color: var(--ink);
+  }
+
+  .section-subhead {
+    font-size: 21px; line-height: 1.55; color: var(--muted);
+    max-width: 660px; margin: 0 0 56px;
+  }
+
+  /* ---------- Three-column blocks ---------- */
+  .cols { display: grid; grid-template-columns: 1fr; gap: 44px; margin-top: 28px; }
+  @media (min-width: 880px) {
+    .cols { grid-template-columns: repeat(3, 1fr); gap: 56px; }
+  }
+  .col h3 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 22px; line-height: 1.3; margin: 0 0 12px; color: var(--ink);
+  }
+  .col__label {
+    font-family: var(--sans); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 14px; font-weight: 500;
+  }
+  .col p { margin: 0; color: var(--ink); font-size: 18px; line-height: 1.65; }
+  .mode-name { color: var(--accent); font-weight: 600; }
+
+  /* ---------- Pilot signal ---------- */
+  .pilot-signal { padding: 56px 0; text-align: center; }
+  .pilot-signal p {
+    font-family: var(--serif); font-style: italic; font-size: 20px;
+    color: var(--muted); max-width: 600px; margin: 0 auto;
+    line-height: 1.55; padding: 24px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .pilot-signal em { font-style: normal; color: var(--ink); }
+
+  /* ---------- Mid-page quiet CTA ---------- */
+  .quiet-cta { text-align: center; padding: 56px 0; }
+  .quiet-cta p {
+    font-family: var(--serif); font-size: 22px; color: var(--muted);
+    margin: 0; line-height: 1.5;
+  }
+  .quiet-cta a { color: var(--accent); border-bottom: 1px solid currentColor; }
+  .quiet-cta a:hover { color: var(--ink); border-bottom-color: var(--ink); text-decoration: none; }
+
+  /* ---------- Centered prose ---------- */
+  .center { text-align: center; }
+  .prose-center {
+    max-width: 660px; margin: 0 auto; text-align: center;
+    font-size: 20px; line-height: 1.7; color: var(--ink);
+  }
+  .prose-center + .prose-center { margin-top: 24px; }
+
+  /* ---------- FAQ (native toggle) ---------- */
+  .faq {
+    margin: 28px auto 0; max-width: 720px;
+    border-top: 1px solid var(--rule);
+  }
+  .faq__item { border-bottom: 1px solid var(--rule); }
+  .faq__item summary {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--ink);
+    padding: 24px 44px 24px 0;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    line-height: 1.35;
+    user-select: none;
+    transition: color 0.15s ease;
+  }
+  .faq__item summary::-webkit-details-marker { display: none; }
+  .faq__item summary::after {
+    content: '';
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    transform: translateY(-50%);
+    background-image:
+      linear-gradient(currentColor, currentColor),
+      linear-gradient(currentColor, currentColor);
+    background-size: 100% 1.2px, 1.2px 100%;
+    background-position: center, center;
+    background-repeat: no-repeat;
+    color: var(--muted);
+    transition: transform 0.25s ease, color 0.2s ease;
+  }
+  .faq__item[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+    color: var(--accent);
+  }
+  .faq__item summary:hover { color: var(--accent); }
+  .faq__item summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 1px;
+  }
+  .faq__answer {
+    padding: 0 44px 28px 0;
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin: 0;
+    animation: faqFade 0.28s ease;
+  }
+  @keyframes faqFade {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .faq__answer { animation: none; }
+    .faq__item summary::after { transition: none; }
+  }
+
+  /* ---------- Closing CTA ---------- */
+  .closing { text-align: center; padding: 120px 0 100px; }
+  .closing__line {
+    font-family: var(--serif); font-size: 32px; font-weight: 500;
+    line-height: 1.25; letter-spacing: -0.005em;
+    margin: 0 auto 18px; max-width: 600px;
+  }
+  .closing__sub {
+    color: var(--muted); max-width: 540px; margin: 0 auto 36px;
+    font-size: 19px; line-height: 1.6;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 56px 0 64px; border-top: 1px solid var(--rule);
+    margin-top: 32px;
+  }
+  footer .wordmark {
+    font-family: var(--serif); font-size: 18px; color: var(--ink);
+    display: block; margin-bottom: 10px;
+  }
+  footer p { margin: 4px 0; font-size: 14px; color: var(--muted); font-family: var(--sans); }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--accent); }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal {
+    opacity: 0; transform: translateY(10px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 640px) {
+    body { font-size: 18px; }
+    .container { padding: 0 22px; }
+    header { padding-top: 32px; }
+    h1 { font-size: 38px; }
+    .subhead { font-size: 19px; margin-bottom: 36px; }
+    h2 { font-size: 28px; }
+    .section-subhead { font-size: 18px; margin-bottom: 40px; }
+    .col h3 { font-size: 20px; }
+    .col p { font-size: 17px; }
+    .hero { padding: 56px 0 64px; }
+    section { padding: 56px 0; }
+    .pilot-signal { padding: 32px 0; }
+    .quiet-cta { padding: 32px 0; }
+    .quiet-cta p { font-size: 19px; }
+    .pilot-signal p { font-size: 18px; }
+    .closing { padding: 88px 0 64px; }
+    .closing__line { font-size: 26px; }
+    .closing__sub { font-size: 17px; }
+    .prose-center { font-size: 18px; }
+    .faq__item summary { font-size: 19px; padding: 22px 36px 22px 0; }
+    .faq__answer { font-size: 17px; padding: 0 36px 24px 0; }
+    .cta { padding: 14px 26px; font-size: 18px; }
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <a href="#" class="brand" aria-label="Azara — home">
+      <!--
+        Classical mark: drafting dividers (compass) — a Renaissance
+        instrument of measurement and proportion. One quiet
+        signature mark. Replace with a higher-fidelity sourced
+        engraving if desired; keep monochrome line-only.
+      -->
+      <span class="brand__mark" aria-hidden="true">
+        <svg width="32" height="42" viewBox="0 0 32 42" xmlns="http://www.w3.org/2000/svg"
+             fill="none" stroke="#1A1814" stroke-width="1.1"
+             stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="16" cy="6" r="2.4"/>
+          <line x1="16" y1="8.4" x2="6" y2="38"/>
+          <line x1="16" y1="8.4" x2="26" y2="38"/>
+          <line x1="12.5" y1="19" x2="19.5" y2="19"/>
+          <line x1="5.4" y1="38.4" x2="6.6" y2="37.6"/>
+          <line x1="25.4" y1="37.6" x2="26.6" y2="38.4"/>
+        </svg>
+      </span>
+      <span class="wordmark">Azara</span>
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============== Hero ============== -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="container">
+      <div class="hero__inner">
+        <h1 id="hero-heading">For skilled technicians and field workers.</h1>
+        <p class="subhead">Real-time, hands-free AI assistance — across manufacturing, hydrogen, data centers, solar, and the other trades that keep the physical world running.</p>
+        <a class="cta" href="https://calendly.com/baioumy">Book a conversation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== Pilot signal ============== -->
+  <aside class="pilot-signal reveal" aria-label="Pilot conversations">
+    <div class="container">
+      <p>Currently piloting with operators in the <em>automotive industry</em>, <em>hydrogen</em>, and <em>AI data centers</em>.</p>
+    </div>
+  </aside>
+
+  <!-- ============== How Azara works ============== -->
+  <section class="reveal" aria-labelledby="how-heading">
+    <div class="container">
+      <h2 id="how-heading">How Azara works</h2>
+      <p class="section-subhead">Across skilled trades, the constraint is human time — too much of it goes to documentation, coaching, and finding the right procedure instead of the work itself. Azara takes those hours back.</p>
+      <div class="cols">
+        <div class="col">
+          <p class="col__label">One</p>
+          <h3>Set up your device.</h3>
+          <p>Azara runs on hardware your team already uses — phone, hard hat mount, body cam, or smart glasses. We can also provide whatever you need. Then configure each role: operating mode, the manuals and SOPs to draw from, the integrations to connect.</p>
+        </div>
+        <div class="col">
+          <p class="col__label">Two</p>
+          <h3>Real-time guidance, hands-free.</h3>
+          <p>Azara sees and hears what the tech does. It walks through procedures — manufacturer guidelines, your internal SOPs, safety checklists — and answers questions without pulling the tech off the task.</p>
+        </div>
+        <div class="col">
+          <p class="col__label">Three</p>
+          <h3>Documentation, captured automatically.</h3>
+          <p>Azara drafts the service reports, inspection logs, and reporting your team already has to file. Techs approve in seconds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== Three modes ============== -->
+  <section class="reveal" aria-labelledby="modes-heading">
+    <div class="container">
+      <h2 id="modes-heading">Three modes. Azara is built around your technicians.</h2>
+      <p class="section-subhead">Different technicians work differently. The same technician works differently on different tasks. Azara adapts.</p>
+      <div class="cols">
+        <div class="col">
+          <h3><span class="mode-name">Coaching mode</span> — proactive guidance.</h3>
+          <p>Azara narrates, checks each step, catches mistakes before they happen. Junior techs produce senior-quality work within weeks.</p>
+        </div>
+        <div class="col">
+          <h3><span class="mode-name">Assist mode</span> — quiet until called.</h3>
+          <p>Silent until the tech asks a question, then Azara answers fast. For experienced techs who want speed without interruption.</p>
+        </div>
+        <div class="col">
+          <h3><span class="mode-name">Silent mode</span> — documentation only.</h3>
+          <p>Azara doesn't speak — watches, listens, and drafts the reports. For senior staff who don't need help diagnosing; they need paperwork off their plate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== Mid-page quiet CTA ============== -->
+  <aside class="quiet-cta reveal" aria-label="Mid-page invitation">
+    <div class="container">
+      <p>Curious how this lands at your sites? <a href="https://calendly.com/baioumy">Book a 30-minute conversation</a>.</p>
+    </div>
+  </aside>
+
+  <!-- ============== Built general. Deployed deep. ============== -->
+  <section class="reveal" aria-labelledby="where-heading">
+    <div class="container">
+      <h2 id="where-heading" class="center">Built general. Deployed deep.</h2>
+      <p class="prose-center">Our underlying technology is general by nature — the same real-time multimodal AI works across manufacturing lines, hydrogen plants, data center floors, and solar arrays. The bottleneck Azara takes off is the same everywhere: skilled human time spent on the wrong things.</p>
+      <p class="prose-center">But generality alone doesn't deliver in the field. We work directly with each customer — on your sites, with your equipment, your procedures, your reporting requirements, your team — until Azara performs the way you need.</p>
+    </div>
+  </section>
+
+  <!-- ============== Common questions (toggle) ============== -->
+  <section class="reveal" aria-labelledby="faq-heading">
+    <div class="container">
+      <h2 id="faq-heading">Common questions.</h2>
+      <div class="faq">
+        <details class="faq__item">
+          <summary>What hardware do we need?</summary>
+          <p class="faq__answer">None new, if you'd rather not. Azara runs on phones, hard hat mounts, body cams, or smart glasses your team already uses. We can also provide whatever equipment you need.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Does Azara work with our manuals and SOPs?</summary>
+          <p class="faq__answer">Yes. Azara ingests manufacturer documentation, your internal SOPs, and your safety procedures, then surfaces the right page at the right moment in the field.</p>
+        </details>
+        <details class="faq__item">
+          <summary>How does Azara handle our data and IP?</summary>
+          <p class="faq__answer">Your procedures, footage, and reports stay yours. Customer-controlled storage and VPC deployment are supported. We sign your DPA and run your security review.</p>
+        </details>
+        <details class="faq__item">
+          <summary>How long is a pilot?</summary>
+          <p class="faq__answer">Six to ten weeks at a real site, with tasks and an outcome agreed up front. We're on site with you the first week.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Does Azara integrate with our existing systems?</summary>
+          <p class="faq__answer">Yes — standard CMMS, EAM, MES, and asset-management platforms. If your stack is unusual, we'll meet you where you are.</p>
+        </details>
+        <details class="faq__item">
+          <summary>What does Azara cost?</summary>
+          <p class="faq__answer">Per-technician, per-month, with pilot pricing for design partners. Specifics on the call.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== Closing CTA ============== -->
+  <section class="closing reveal" aria-labelledby="closing-heading">
+    <div class="container">
+      <p class="closing__line" id="closing-heading">If this sounds useful, let's talk.</p>
+      <p class="closing__sub">We work with a small number of pilot partners, in person, on real sites. If that fits, we'd love to hear from you.</p>
+      <a class="cta" href="https://calendly.com/baioumy">Book a 30-minute conversation →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <span class="wordmark">Azara</span>
+    <p>© 2026 Azara</p>
+    <p>Contact: <a href="mailto:mo@AzaraHQ.com">mo@AzaraHQ.com</a></p>
+  </div>
+</footer>
+
+<script>
+  // Scroll-reveal. Respects prefers-reduced-motion.
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
